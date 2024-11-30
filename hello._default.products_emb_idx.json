@@ -1,0 +1,142 @@
+{
+  "type": "fulltext-index",
+  "name": "hello._default.products_emb_idx",
+  "uuid": "52db6df342cf4642",
+  "sourceType": "gocbcore",
+  "sourceName": "hello",
+  "sourceUUID": "ded9f08519ff242c6fb4a3db0877777e",
+  "planParams": {
+    "maxPartitionsPerPIndex": 1024,
+    "indexPartitions": 1
+  },
+  "params": {
+    "doc_config": {
+      "docid_prefix_delim": "",
+      "docid_regexp": "",
+      "mode": "scope.collection.type_field",
+      "type_field": "type"
+    },
+    "mapping": {
+      "analysis": {},
+      "default_analyzer": "standard",
+      "default_datetime_parser": "dateTimeOptional",
+      "default_field": "_all",
+      "default_mapping": {
+        "dynamic": false,
+        "enabled": false
+      },
+      "default_type": "_default",
+      "docvalues_dynamic": false,
+      "index_dynamic": true,
+      "store_dynamic": true,
+      "type_field": "_type",
+      "types": {
+        "_default._default": {
+          "dynamic": false,
+          "enabled": true,
+          "properties": {
+            "ASIN": {
+              "dynamic": false,
+              "enabled": true,
+              "fields": [
+                {
+                  "analyzer": "keyword",
+                  "index": true,
+                  "name": "ASIN",
+                  "store": true,
+                  "type": "text"
+                }
+              ]
+            },
+            "description": {
+              "dynamic": false,
+              "enabled": true,
+              "fields": [
+                {
+                  "analyzer": "en",
+                  "index": true,
+                  "name": "description",
+                  "store": true,
+                  "type": "text"
+                }
+              ]
+            },
+            "description_embedding": {
+              "dynamic": false,
+              "enabled": true,
+              "fields": [
+                {
+                  "dims": 1536,
+                  "index": true,
+                  "name": "description_embedding",
+                  "similarity": "dot_product",
+                  "type": "vector",
+                  "vector_index_optimized_for": "recall"
+                }
+              ]
+            },
+            "features": {
+              "dynamic": false,
+              "enabled": true,
+              "fields": [
+                {
+                  "analyzer": "en",
+                  "index": true,
+                  "name": "features",
+                  "store": true,
+                  "type": "text"
+                }
+              ]
+            },
+            "features_embedding": {
+              "dynamic": false,
+              "enabled": true,
+              "fields": [
+                {
+                  "dims": 1536,
+                  "index": true,
+                  "name": "features_embedding",
+                  "similarity": "dot_product",
+                  "type": "vector",
+                  "vector_index_optimized_for": "recall"
+                }
+              ]
+            },
+            "name": {
+              "dynamic": false,
+              "enabled": true,
+              "fields": [
+                {
+                  "analyzer": "en",
+                  "index": true,
+                  "name": "name",
+                  "store": true,
+                  "type": "text"
+                }
+              ]
+            },
+            "review_summary_embedding": {
+              "dynamic": false,
+              "enabled": true,
+              "fields": [
+                {
+                  "dims": 1536,
+                  "index": true,
+                  "name": "review_summary_embedding",
+                  "similarity": "dot_product",
+                  "type": "vector",
+                  "vector_index_optimized_for": "recall"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "store": {
+      "indexType": "scorch",
+      "segmentVersion": 16
+    }
+  },
+  "sourceParams": {}
+}
